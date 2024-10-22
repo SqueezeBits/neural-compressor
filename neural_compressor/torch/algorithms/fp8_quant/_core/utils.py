@@ -52,6 +52,8 @@ def prepare_model(model):
     config = get_hqt_config(model)
     update_mod_dict(config)
     allowlist = set(config.cfg["mod_dict"].keys())
+    if len(config.cfg["allowlist"]["types"]) > 0:
+        allowlist = set(config.cfg["allowlist"]["types"])
     blocklist = set()
     for type_st in config.cfg["blocklist"]["types"]:
         blocklist.add(type_st)
